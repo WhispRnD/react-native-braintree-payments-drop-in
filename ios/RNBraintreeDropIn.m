@@ -30,7 +30,10 @@ RCT_REMAP_METHOD(show,
         request.threeDSecureVerification = YES;
         request.amount = [threeDSecureAmount stringValue];
     }
-
+    
+    // Disable paypal manually for now
+    request.paypalDisabled = YES;
+    
     BTDropInController *dropIn = [[BTDropInController alloc] initWithAuthorization:clientToken request:request handler:^(BTDropInController * _Nonnull controller, BTDropInResult * _Nullable result, NSError * _Nullable error) {
             [self.reactRoot dismissViewControllerAnimated:YES completion:nil];
 
